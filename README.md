@@ -1,4 +1,4 @@
-# tidy
+# tidycoder
 
 A Claude Code skill that plays janitor — purges regenerable build artifacts (`node_modules`, `.next`, `.turbo`, `dist`, `build`, `out`, `.expo`, framework caches, Python caches, Rust `target`) from projects you haven't touched recently.
 
@@ -7,27 +7,27 @@ Never touches source code, `.env*`, lockfiles, configs, or `.git`.
 ## Install
 
 ```bash
-/plugin install makerdock/tidy
+/plugin install makerdock/tidycoder
 ```
 
 Or clone and symlink for local development:
 
 ```bash
-git clone https://github.com/makerdock/tidy ~/Documents/code/tidy
-ln -s ~/Documents/code/tidy/skills/tidy ~/.claude/skills/tidy
+git clone https://github.com/makerdock/tidycoder ~/Documents/code/tidycoder
+ln -s ~/Documents/code/tidycoder/skills/tidycoder ~/.claude/skills/tidycoder
 ```
 
 ## Usage
 
-Run `/tidy` inside a parent folder that contains one or more project subfolders.
+Run `/tidycoder` inside a parent folder that contains one or more project subfolders.
 
 | Command | Behavior |
 | --- | --- |
-| `/tidy` | Scan every subfolder of cwd, purge projects stale for ≥7 days |
-| `/tidy piggy` | Target a single repo (skips staleness check — explicit path = intent) |
-| `/tidy 14d` | Custom staleness threshold |
-| `/tidy --all` | Ignore staleness, purge everything in scope |
-| `/tidy --dry-run` | Preview the plan, delete nothing |
+| `/tidycoder` | Scan every subfolder of cwd, purge projects stale for ≥7 days |
+| `/tidycoder piggy` | Target a single repo (skips staleness check — explicit path = intent) |
+| `/tidycoder 14d` | Custom staleness threshold |
+| `/tidycoder --all` | Ignore staleness, purge everything in scope |
+| `/tidycoder --dry-run` | Preview the plan, delete nothing |
 
 Before any deletion the skill prints a plan table (age, size, targets per project), shows which projects are being kept, and asks for confirmation. Then it records disk free before/after and reports how much was reclaimed.
 

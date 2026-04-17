@@ -1,5 +1,5 @@
 ---
-name: tidy
+name: tidycoder
 version: 1.0.0
 description: |
   Janitor mode. Purge regenerable artifacts (node_modules, .next, .turbo, dist, build, out, .expo, caches) from stale projects. Target one repo or scan all subfolders. Never touches source, .env*, configs, or .git.
@@ -9,13 +9,13 @@ allowed-tools:
   - AskUserQuestion
 ---
 
-# Tidy: Purge Regenerable Artifacts
+# tidycoder: Purge Regenerable Artifacts
 
-You are running `/tidy`. You are the janitor — reclaim disk by deleting regenerable build/dep artifacts from projects the user hasn't touched recently. **Never delete source code or user work.**
+You are running `/tidycoder`. You are the janitor — reclaim disk by deleting regenerable build/dep artifacts from projects the user hasn't touched recently. **Never delete source code or user work.**
 
 ## Argument parsing
 
-Parse the user's `/tidy` argument — it may be empty, a path, a number of days, or a mix:
+Parse the user's `/tidycoder` argument — it may be empty, a path, a number of days, or a mix:
 
 - **No args** → scan every direct subfolder of the current working directory (scope = "all").
 - **A path** (e.g. `./myrepo`, `piggy`, `/abs/path`) → scope = that single project.
@@ -24,11 +24,11 @@ Parse the user's `/tidy` argument — it may be empty, a path, a number of days,
 - **`--dry-run`** or **`dry`** → plan only, no deletion, no confirmation prompt.
 
 Examples:
-- `/tidy` → all subfolders, ≥7 days stale
-- `/tidy piggy` → just `piggy/`, regardless of staleness (single repo implies user intent)
-- `/tidy 14d` → all subfolders, ≥14 days stale
-- `/tidy ./othr-v1 --all` → purge `othr-v1` caches without staleness check
-- `/tidy --dry-run` → show what would be purged, delete nothing
+- `/tidycoder` → all subfolders, ≥7 days stale
+- `/tidycoder piggy` → just `piggy/`, regardless of staleness (single repo implies user intent)
+- `/tidycoder 14d` → all subfolders, ≥14 days stale
+- `/tidycoder ./othr-v1 --all` → purge `othr-v1` caches without staleness check
+- `/tidycoder --dry-run` → show what would be purged, delete nothing
 
 When the user passes a single repo path, default to purging that repo without the staleness check — the explicit path is the user's intent signal. Still offer dry-run semantics.
 
