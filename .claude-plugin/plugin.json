@@ -1,0 +1,13 @@
+{
+  "name": "tidy",
+  "description": "Janitor mode for Claude Code. Purge regenerable artifacts (node_modules, .next, .turbo, dist, build, caches) from stale projects. Target one repo or scan all subfolders. Never touches source, .env*, configs, or .git.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Utkarsh Bhimte",
+    "url": "https://github.com/Utkarshbhimte"
+  },
+  "homepage": "https://github.com/makerdock/tidy",
+  "repository": "https://github.com/makerdock/tidy",
+  "license": "MIT",
+  "keywords": ["claude-code", "skill", "cleanup", "node_modules", "janitor", "disk-space"]
+}
